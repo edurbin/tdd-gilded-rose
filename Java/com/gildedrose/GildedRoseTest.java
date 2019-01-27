@@ -79,4 +79,12 @@ public class GildedRoseTest {
 		gildedRose.updateQuality();
 		assertEquals(4, items[0].quality);
 	}
+	
+	@Test
+	public void backstagePassQualityDropsToZeroAfterConcert() {
+		Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 0, 1)};
+		GildedRose gildedRose = new GildedRose(items);
+		gildedRose.updateQuality();
+		assertEquals(0, items[0].quality);
+	}
 }
