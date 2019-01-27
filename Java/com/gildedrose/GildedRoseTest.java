@@ -31,4 +31,12 @@ public class GildedRoseTest {
 		gildedRose.updateQuality();
 		assertEquals(0, items[0].quality);
 	}
+	
+	@Test
+	public void agedBrieIncreasesInQualityWithAge() {
+		Item[] items = new Item[] {new Item("Aged Brie", 1, 0)};
+		GildedRose gildedRose = new GildedRose(items);
+		gildedRose.updateQuality();
+		assertEquals(1, items[0].quality);
+	}
 }
