@@ -13,47 +13,46 @@ class GildedRose {
         		continue;
         	}
         	
-            if (!itemIsAgedBrie(item) && !itemIsBackstagePasses(item)) {
-                if (itemQualityIsGreaterThanZero(item)) {
-                	decrementItemQuality(item);
-                }
-            } else {
-                if (itemQualityIsLessThanFifty(item)) {
-                    incrementItemQuality(item);
-
-                    if (itemIsBackstagePasses(item)) {
-                        if (item.sellIn < 11) {
-                            if (itemQualityIsLessThanFifty(item)) {
-                                incrementItemQuality(item);
-                            }
-                        }
-
+        	if(itemIsBackstagePasses(item)) {
+        		if (itemQualityIsLessThanFifty(item)) {
+        			incrementItemQuality(item);
+                    if (item.sellIn < 11) {
+                    	incrementItemQuality(item);
+                    	
                         if (item.sellIn < 6) {
-                            if (itemQualityIsLessThanFifty(item)) {
-                                incrementItemQuality(item);
-                            }
+                            incrementItemQuality(item);
                         }
                     }
+        		}
+                decrementSellIn(item);
+                if (item.sellIn < 0) {
+                	item.quality = item.quality - item.quality;
                 }
-            }
-
-            decrementSellIn(item);
-
-            if (item.sellIn < 0) {
+        	} else {
                 if (!itemIsAgedBrie(item)) {
-                    if (!itemIsBackstagePasses(item)) {
-                        if (itemQualityIsGreaterThanZero(item)) {
-                        	decrementItemQuality(item);
-                        }
-                    } else {
-                        item.quality = item.quality - item.quality;
+                    if (itemQualityIsGreaterThanZero(item)) {
+                    	decrementItemQuality(item);
                     }
                 } else {
                     if (itemQualityIsLessThanFifty(item)) {
                         incrementItemQuality(item);
                     }
                 }
-            }
+                
+                decrementSellIn(item);
+                
+            	if (item.sellIn < 0) {
+            		if (!itemIsAgedBrie(item)) {
+            			if (itemQualityIsGreaterThanZero(item)) {
+            				decrementItemQuality(item);
+            			}
+            		} else {
+            			if (itemQualityIsLessThanFifty(item)) {
+            				incrementItemQuality(item);
+            			}
+            		}
+            	}
+        	}
         }
     }
 
