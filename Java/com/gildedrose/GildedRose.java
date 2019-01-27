@@ -37,7 +37,7 @@ class GildedRose {
                 }
             }
 
-            item.sellIn = item.sellIn - 1;
+            decrementSellIn(item);
 
             if (item.sellIn < 0) {
                 if (!itemIsAgedBrie(item)) {
@@ -56,6 +56,10 @@ class GildedRose {
             }
         }
     }
+
+	private int decrementSellIn(Item item) {
+		return item.sellIn = item.sellIn - 1;
+	}
 
 	private boolean itemIsAgedBrie(Item item) {
 		return item.name.equals("Aged Brie");
