@@ -13,8 +13,7 @@ class GildedRose {
         		continue;
         	}
         	
-            if (!item.name.equals("Aged Brie")
-                    && !itemIsBackstagePasses(item)) {
+            if (!itemIsAgedBrie(item) && !itemIsBackstagePasses(item)) {
                 if (itemQualityIsGreaterThanZero(item)) {
                 	decrementItemQuality(item);
                 }
@@ -41,7 +40,7 @@ class GildedRose {
             item.sellIn = item.sellIn - 1;
 
             if (item.sellIn < 0) {
-                if (!item.name.equals("Aged Brie")) {
+                if (!itemIsAgedBrie(item)) {
                     if (!itemIsBackstagePasses(item)) {
                         if (itemQualityIsGreaterThanZero(item)) {
                         	decrementItemQuality(item);
@@ -57,6 +56,10 @@ class GildedRose {
             }
         }
     }
+
+	private boolean itemIsAgedBrie(Item item) {
+		return item.name.equals("Aged Brie");
+	}
 
 	private boolean itemIsBackstagePasses(Item item) {
 		return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
