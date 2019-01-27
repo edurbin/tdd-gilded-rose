@@ -6,12 +6,13 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 
-    @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
-    }
-
+	@Test
+	public void updateQualityShouldDecrementQualityAndSellIn() {
+		Item[] items = new Item[] {new Item("MyItem", 1, 1)};
+		GildedRose gildedRose = new GildedRose(items);
+		gildedRose.updateQuality();
+		assertEquals(0, items[0].quality);
+		assertEquals(0, items[0].sellIn);
+	}
+	
 }
