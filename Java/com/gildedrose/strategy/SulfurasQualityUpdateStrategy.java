@@ -2,7 +2,7 @@ package com.gildedrose.strategy;
 
 import com.gildedrose.Item;
 
-public class SulfurasStrategy implements QualityUpdateStrategy {
+public class SulfurasQualityUpdateStrategy implements QualityUpdateStrategy {
 
 	@Override
 	public Item updateQuality(Item item) {

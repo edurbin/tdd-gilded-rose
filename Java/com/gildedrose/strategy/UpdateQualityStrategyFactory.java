@@ -15,7 +15,10 @@ public enum UpdateQualityStrategyFactory {
 			strategy = new BackstagePassQualityUpdateStrategy();
 			break;
 		case "Sulfuras, Hand of Ragnaros":
-			strategy = new SulfurasStrategy();
+			strategy = new SulfurasQualityUpdateStrategy();
+			break;
+		case "Conjured Mana Cake":
+			strategy = new ConjuredQualityUpdateStrategy();
 			break;
 		default:
 			strategy = new DefaultQualityUpdateStrategy();

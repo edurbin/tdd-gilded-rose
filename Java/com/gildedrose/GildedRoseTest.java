@@ -87,4 +87,11 @@ public class GildedRoseTest {
 		gildedRose.updateQuality();
 		assertEquals(0, items[0].quality);
 	}
+	
+	@Test public void conjuredItemsDegradeTwiceAsFastAsNormalItems() {
+		Item[] items = new Item[] {new Item("Conjured Mana Cake", 2, 4)};
+		GildedRose gildedRose = new GildedRose(items);
+		gildedRose.updateQuality();
+		assertEquals(2, items[0].quality);
+	}
 }
