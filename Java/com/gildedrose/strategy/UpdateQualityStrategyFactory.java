@@ -1,6 +1,7 @@
 package com.gildedrose.strategy;
 
 import com.gildedrose.Item;
+import static com.gildedrose.ItemNames.*;
 
 public enum UpdateQualityStrategyFactory {
 	INSTANCE;
@@ -8,16 +9,16 @@ public enum UpdateQualityStrategyFactory {
 	public QualityUpdateStrategy getUpdateQualityStrategy(Item item) {
 		QualityUpdateStrategy strategy = null;
 		switch (item.name) {
-		case "Aged Brie":
+		case AGED_BRIE:
 			strategy = new AgedBrieQualityUpdateStrategy();
 			break;
-		case "Backstage passes to a TAFKAL80ETC concert":
+		case BACKSTAGE_PASSES:
 			strategy = new BackstagePassQualityUpdateStrategy();
 			break;
-		case "Sulfuras, Hand of Ragnaros":
+		case SULFURAS:
 			strategy = new SulfurasQualityUpdateStrategy();
 			break;
-		case "Conjured Mana Cake":
+		case CONJURED_MANA:
 			strategy = new ConjuredQualityUpdateStrategy();
 			break;
 		default:
